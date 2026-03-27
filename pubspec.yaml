@@ -1,0 +1,38 @@
+name: anime
+description: "Anime Tracker App"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Supabase
+  supabase_flutter: ^2.8.4
+
+  # Navigation
+  go_router: ^14.6.2
+
+  # State management
+  provider: ^6.1.2
+
+  # Image caching
+  cached_network_image: ^3.4.1
+
+  # Loading indicator
+  shimmer: ^3.0.0
+
+  # File picker (untuk upload gambar ke Supabase Storage)
+  file_picker: ^8.1.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
