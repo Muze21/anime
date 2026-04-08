@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Anime Tracker'),
+        title: const Text('My Anime List'),
         actions: [
           // Sort button
           PopupMenuButton<_SortOption>(

@@ -24,9 +24,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
   Future<void> _fetch() async {
     setState(() => _isLoading = true);
     try {
-      // Ambil semua rating lalu hitung rata-rata di client
-      // (Supabase JS SDK tidak support GROUP BY langsung —
-      //  gunakan RPC untuk solusi production, ini cukup untuk dev)
+
       final ratingsRaw = await Supabase.instance.client
           .from('ratings')
           .select('anime_id, score');

@@ -1,3 +1,3 @@
-const String supabaseUrl = 'your-supabase-url-here';
+const String supabaseUrl = 'https://bilfobvaainlfoogoghy.supabase.co';
 const String supabaseAnonKey =
-    'your-anon-key-here';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpbGZvYnZhYWlubGZvb2dvZ2h5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY1NTAsImV4cCI6MjA4OTU5MjU1MH0.j6_tqYeBcJqxoaFzR6KI8JJjwnOfZ0GrlZZUFGFPMgM';
