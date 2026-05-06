@@ -44,3 +44,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Supabase credentials — jangan di-push ke GitHub!
+lib/core/supabase_config.dart
