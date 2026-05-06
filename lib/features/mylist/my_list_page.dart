@@ -229,22 +229,7 @@ class _MyListPageState extends State<MyListPage> {
                                 ),
                               ),
                             ),
-                          // Tombol hapus ×
-                          Positioned(
-                            top: 6, right: 6,
-                            child: GestureDetector(
-                              onTap: () => _remove(
-                                  anime['id'], anime['title'] ?? ''),
-                              child: Container(
-                                padding: const EdgeInsets.all(5),
-                                decoration: const BoxDecoration(
-                                    color: Colors.black87,
-                                    shape: BoxShape.circle),
-                                child: const Icon(Icons.close,
-                                    color: Colors.white, size: 14),
-                              ),
-                            ),
-                          ),
+                        
                         ],
                       );
                     },

@@ -61,7 +61,10 @@ final GoRouter appRouter = GoRouter(
       if (isAuthPage) {
         return profile['role'] == 'admin' ? '/admin' : '/home';
       }
-    } catch (_) {}
+    } catch (e) {
+  await Supabase.instance.client.auth.signOut();
+  return '/login';
+}
 
     return null;
   },

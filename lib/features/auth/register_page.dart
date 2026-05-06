@@ -13,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
   bool _isLoading = false;
@@ -22,6 +23,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   void dispose() {
     _emailController.dispose();
+    _usernameController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
@@ -42,6 +44,12 @@ class _RegisterPageState extends State<RegisterPage> {
       if (response.user == null) {
         throw Exception('Registrasi gagal. Coba lagi.');
       }
+
+      // Simpan username ke tabel profiles
+      await Supabase.instance.client.from('profiles').upsert({
+        'id': response.user!.id,
+        'username': _usernameController.text.trim(),
+      });
 
       // Catatan: Trigger di Supabase otomatis membuat record di tabel profiles
       // Jika email confirmation dimatikan, user langsung bisa login
@@ -120,6 +128,25 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Username
+                        _buildLabel('Username'),
+                        const SizedBox(height: 8),
+                        TextFormField(
+                          controller: _usernameController,
+                          style: const TextStyle(color: AppTheme.textPrimary),
+                          decoration: const InputDecoration(
+                            hintText: 'Nama yang ditampilkan',
+                            prefixIcon: Icon(Icons.person_outline,
+                                color: AppTheme.textMuted),
+                          ),
+                          validator: (v) {
+                            if (v == null || v.trim().isEmpty) return 'Username wajib diisi';
+                            if (v.trim().length < 3) return 'Username minimal 3 karakter';
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 20),
+
                         // Email
                         _buildLabel('Email'),
                         const SizedBox(height: 8),
